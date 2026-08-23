@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portal Aplikasi & Kaleidoskop - SDA Jakarta Utara</title>
+    <title>Portal Aplikasi & Kaleidoskop - SIDAJU SDA Jakarta Utara</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,8 +68,8 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 to-primary-400 flex items-center justify-center shadow-lg shadow-primary-500/30">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 to-primary-400 overflow-hidden border border-primary-200 shadow-lg shadow-primary-500/30">
+                        <img src="{{ asset('assets/logo.jpeg') }}" alt="Logo SIDAJU" class="w-full h-full object-cover">
                     </div>
                     <div>
                         <h1 class="font-display font-bold text-xl leading-none text-slate-800 tracking-wide">SDA JAKUT</h1>

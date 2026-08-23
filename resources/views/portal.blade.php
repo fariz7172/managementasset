@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Portal Aplikasi Terintegrasi — Gerbang seluruh sistem dan aplikasi operasional Suku Dinas Tata Kelola Air Jakarta Utara.">
-    <title>Portal Aplikasi — SIMSUDIN SDA Jakarta Utara</title>
+    <title>Portal Aplikasi — SIDAJU SDA Jakarta Utara</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,13 +46,11 @@
     <nav class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
             <a href="{{ url('/') }}" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-xl bg-sky-700 flex items-center justify-center group-hover:bg-sky-600 transition-colors">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                    </svg>
+                <div class="w-9 h-9 rounded-xl bg-sky-700 overflow-hidden border border-sky-400 group-hover:bg-sky-600 transition-colors">
+                    <img src="{{ asset('assets/logo.jpeg') }}" alt="Logo SIDAJU" class="w-full h-full object-cover">
                 </div>
                 <div class="leading-tight">
-                    <p class="text-white font-extrabold text-sm tracking-wider">SIMSUDIN</p>
+                    <p class="text-white font-extrabold text-sm tracking-wider">SIDAJU</p>
                     <p class="text-sky-400 text-[9px] font-bold tracking-widest uppercase">SDA Jakarta Utara</p>
                 </div>
             </a>
