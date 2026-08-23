@@ -96,3 +96,31 @@
     @endif
 </div>
 @endsection
+
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('globalSearchInput');
+    const tableRows = document.querySelectorAll('tbody tr');
+
+    if (searchInput && tableRows.length > 0) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            tableRows.forEach(row => {
+                // Skip the "empty data" row if it exists
+                if (row.querySelector('td[colspan]')) return;
+                
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    }
+});
+</script>
+@endpush

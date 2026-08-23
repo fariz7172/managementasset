@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Kaleidoskop dan Portal Aplikasi Terintegrasi Suku Dinas Tata Kelola Air Wilayah Jakarta Utara.">
-    <title>SIMSUDIN — Suku Dinas Tata Kelola Air Jakarta Utara</title>
+    <title>Sistem Informasi Digital Sumber Daya Air Jakarta Utara (SIDAJU)</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,7 +99,7 @@
                     </svg>
                 </div>
                 <div class="leading-tight">
-                    <p class="text-white font-extrabold text-base tracking-wider">SIMSUDIN</p>
+                    <p class="text-white font-extrabold text-base tracking-wider">SIDAJU</p>
                     <p class="text-sky-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Tata Kelola Air Jakarta Utara</p>
                 </div>
             </a>
@@ -107,9 +107,9 @@
             <!-- Desktop Nav -->
             <div class="hidden lg:flex items-center gap-8">
                 <a href="#tentang"    class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Tentang</a>
-                <a href="#layanan"    class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Layanan</a>
-                <a href="#statistik"  class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Statistik</a>
-                <a href="{{ route('kaleidoskop') }}" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Kaleidoskop</a>
+                <a href="{{ route('public.map') }}"    class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Peta Aset</a>
+                <a href="{{ route('public.map.reses') }}"  class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Peta Reses </a>
+                <a href="{{ route('kaleidoskop') }}" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Artikel</a>
                 <a href="{{ route('portal') }}"     class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Portal Aplikasi</a>
                 @if (Route::has('login'))
                     @auth
@@ -292,13 +292,13 @@
                 <div class="reveal">
                     <div class="inline-flex items-center gap-3 mb-4">
                         <span class="w-8 h-0.5 bg-sky-600"></span>
-                        <span class="text-sky-600 font-bold text-xs tracking-widest uppercase">Tentang SIMSUDIN</span>
+                        <span class="text-sky-600 font-bold text-xs tracking-widest uppercase">Tentang SIDAJU</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-serif font-bold text-slate-900 leading-tight mb-6">
                         Menjaga Jakarta Utara<br>Dari Ancaman <span class="text-sky-600">Banjir</span>
                     </h2>
                     <p class="text-lg text-slate-600 font-light leading-relaxed mb-6">
-                        Sistem Manajemen Terpadu Suku Dinas (SIMSUDIN) Tata Kelola Air Jakarta Utara adalah inisiatif digitalisasi pengelolaan infrastruktur perairan. Kami mengawasi, memelihara, dan menormalisasi sistem tata air demi menciptakan lingkungan yang aman dan nyaman bagi masyarakat.
+                        Sistem Informasi Digital Sumber Daya Air Jakarta Utara (SIDAJU)  adalah inisiatif digitalisasi pengelolaan infrastruktur perairan. Kami mengawasi, memelihara, dan menormalisasi sistem tata air demi menciptakan lingkungan yang aman dan nyaman bagi masyarakat.
                     </p>
                     <p class="text-slate-500 font-light leading-relaxed mb-8">
                         Melalui portal ini, kami mendokumentasikan setiap langkah perbaikan (Kaleidoskop) dan menyatukan seluruh aplikasi operasional ke dalam satu gerbang digital yang transparan dan mudah diakses.
@@ -379,10 +379,10 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 @php
                     $stats = [
-                        ['value' => '1.240+', 'label' => 'Titik Saluran Ditangani', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
-                        ['value' => '64',     'label' => 'Stasiun Pompa Aktif',    'icon' => 'M13 10V3L4 14h7v7l9-11h-7z'],
+                        ['value' => $pintuAirCount, 'label' => 'Total Pintu Air', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
+                        ['value' => $pompaCount, 'label' => 'Stasiun Pompa Aktif', 'icon' => 'M13 10V3L4 14h7v7l9-11h-7z'],
                         ['value' => '180 km', 'label' => 'Panjang Saluran Dinormalisasi','icon' => 'M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4'],
-                        ['value' => $portals->count() ?: '—', 'label' => 'Aplikasi Terintegrasi', 'icon' => 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'],
+                        ['value' => $portalCount ?: '—', 'label' => 'Aplikasi Terintegrasi', 'icon' => 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'],
                     ];
                 @endphp
                 @foreach($stats as $stat)
@@ -398,6 +398,14 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+
+            <!-- CTA Button -->
+            <div class="mt-12 text-center reveal">
+                <a href="{{ route('public.map') }}" class="inline-flex items-center gap-3 px-8 py-3.5 bg-slate-800 hover:bg-sky-600 text-white font-bold text-sm uppercase tracking-widest transition-all rounded-full shadow-lg hover:shadow-sky-500/25 group">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                    Lihat Peta Persebaran Aset
+                </a>
             </div>
         </div>
     </section>
@@ -507,6 +515,143 @@
     </section>
 
     <!-- ──────────────────────────────────────────── -->
+    <!--            PETA PEMANTAUAN ASET             -->
+    <!-- ──────────────────────────────────────────── -->
+    <section id="monitoring" class="py-28 relative overflow-hidden bg-slate-900">
+        <!-- Ambient Glow -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542360663-8f4020fc25fd?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-sky-900/20 blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Text -->
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-3 mb-4">
+                        <span class="w-8 h-0.5 bg-sky-500"></span>
+                        <span class="text-sky-400 font-bold text-xs tracking-widest uppercase">Live Control Room</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white leading-tight mb-6">
+                        Pemantauan Aset SDA<br>
+                        <span class="text-sky-400">Secara Real-Time</span>
+                    </h2>
+                    <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
+                        Pantau pergerakan dan status operasional seluruh aset infrastruktur perairan di Jakarta Utara. Mulai dari Pintu Air, Stasiun Pompa, Pompa Mobile, hingga Sub Polder.
+                    </p>
+                    <p class="text-slate-400 font-light leading-relaxed mb-10">
+                        Kami menyediakan peta interaktif publik untuk memastikan transparansi kegiatan pemeliharaan dan memberikan informasi terkini bagi warga Jakarta.
+                    </p>
+                    
+                    <a href="{{ route('public.map') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-full shadow-[0_0_40px_rgba(14,165,233,0.4)] transition-all hover:scale-105 group">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        Lihat Peta Pemantauan
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+
+                <!-- Map Illustration/Preview -->
+                <div class="reveal relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-blue-600/20 rounded-3xl transform rotate-3 scale-105 blur-lg"></div>
+                    <a href="{{ route('public.map') }}" class="relative block bg-slate-900 border border-slate-700/50 rounded-3xl p-2 shadow-2xl overflow-hidden group cursor-pointer hover:border-sky-500/50 transition-all duration-300">
+                        <!-- Mac OS style dots -->
+                        <div class="flex gap-2 px-4 py-3 border-b border-slate-800">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        </div>
+                        
+                        <!-- Overlay for "Click to view" -->
+                        <div class="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-sky-900/40 backdrop-blur-[2px]">
+                            <span class="inline-flex items-center gap-2 px-6 py-3 bg-sky-600 text-white font-bold text-sm uppercase tracking-widest rounded-full shadow-2xl scale-90 group-hover:scale-100 transition-all duration-500">
+                                Buka Peta Interaktif
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+
+                        <!-- Static Map Image Local -->
+                        <img src="{{ asset('assets/peta.jpg') }}" alt="Peta Jakarta Utara" class="w-full h-80 object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        
+                        <!-- Floating Markers (Decorations) -->
+                        <div class="absolute top-1/3 left-1/4 w-4 h-4 rounded-full bg-sky-500 border-2 border-slate-900 shadow-[0_0_15px_rgba(14,165,233,0.8)] animate-pulse z-0"></div>
+                        <div class="absolute bottom-1/3 right-1/4 w-4 h-4 rounded-full bg-emerald-500 border-2 border-slate-900 shadow-[0_0_15px_rgba(16,185,129,0.8)] animate-bounce z-0" style="animation-duration: 2s;"></div>
+                        <div class="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-pink-500 border-2 border-slate-900 shadow-[0_0_15px_rgba(236,72,153,0.8)] animate-ping z-0" style="animation-duration: 3s;"></div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────── -->
+    <!--            PETA MONITORING RESES            -->
+    <!-- ──────────────────────────────────────────── -->
+    <section id="monitoring-reses" class="py-28 relative overflow-hidden bg-slate-950">
+        <!-- Ambient Glow -->
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-950/80 to-slate-900"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-900/10 blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Map Illustration/Preview (Left Side) -->
+                <div class="reveal relative lg:order-1 order-2">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-purple-600/20 rounded-3xl transform -rotate-3 scale-105 blur-lg"></div>
+                    <a href="{{ route('public.map.reses') }}" class="relative block bg-slate-900 border border-slate-700/50 rounded-3xl p-2 shadow-2xl overflow-hidden group cursor-pointer hover:border-indigo-500/50 transition-all duration-300">
+                        <!-- Mac OS style dots -->
+                        <div class="flex gap-2 px-4 py-3 border-b border-slate-800">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        </div>
+                        
+                        <!-- Overlay for "Click to view" -->
+                        <div class="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-indigo-900/40 backdrop-blur-[2px]">
+                            <span class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-bold text-sm uppercase tracking-widest rounded-full shadow-2xl scale-90 group-hover:scale-100 transition-all duration-500">
+                                Buka Peta Usulan
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+
+                        <!-- Static Map Image Local -->
+                        <img src="{{ asset('assets/reses.png') }}" alt="Peta Jakarta Utara" class="w-full h-120 object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        
+                        <!-- Floating Markers (Decorations) -->
+                        <div class="absolute top-1/4 left-1/3 w-4 h-4 rounded-full bg-emerald-500 border-2 border-slate-900 shadow-[0_0_15px_rgba(16,185,129,0.8)] animate-pulse z-0"></div>
+                        <div class="absolute bottom-1/4 right-1/3 w-4 h-4 rounded-full bg-blue-500 border-2 border-slate-900 shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-bounce z-0" style="animation-duration: 2.5s;"></div>
+                        <div class="absolute top-1/2 right-1/4 w-4 h-4 rounded-full bg-orange-500 border-2 border-slate-900 shadow-[0_0_15px_rgba(249,115,22,0.8)] animate-ping z-0" style="animation-duration: 3s;"></div>
+                    </a>
+                </div>
+
+                <!-- Text (Right Side) -->
+                <div class="reveal lg:order-2 order-1">
+                    <div class="inline-flex items-center gap-3 mb-4">
+                        <span class="w-8 h-0.5 bg-indigo-500"></span>
+                        <span class="text-indigo-400 font-bold text-xs tracking-widest uppercase">Usulan Masyarakat & Reses</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white leading-tight mb-6">
+                        Transparansi Data<br>
+                        <span class="text-indigo-400">Pekerjaan SDA</span>
+                    </h2>
+                    <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
+                        Kawal pembangunan di sekitar Anda! Lihat titik lokasi pengerjaan saluran air hasil usulan masyarakat dan kegiatan Reses secara langsung dan akurat.
+                    </p>
+                    <p class="text-slate-400 font-light leading-relaxed mb-10">
+                        Terintegrasi dengan sistem pusat untuk menyajikan bar progres pengerjaan di lapangan yang diperbarui secara langsung.
+                    </p>
+                    
+                    <a href="{{ route('public.map.reses') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full shadow-[0_0_40px_rgba(79,70,229,0.4)] transition-all hover:scale-105 group">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Lihat Peta Usulan Warga
+                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────── -->
     <!--           PORTAL APLIKASI                   -->
     <!-- ──────────────────────────────────────────── -->
     <section id="portal" class="py-28 bg-slate-950 relative overflow-hidden">
@@ -604,12 +749,12 @@
                             <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                         </div>
                         <div>
-                            <h2 class="text-white font-extrabold text-base tracking-widest">SIMSUDIN</h2>
+                            <h2 class="text-white font-extrabold text-base tracking-widest">SIDAJU</h2>
                             <p class="text-sky-600 text-[10px] font-bold tracking-widest uppercase">SDA Jakarta Utara</p>
                         </div>
                     </div>
                     <p class="text-slate-500 text-sm leading-relaxed font-light">
-                        Sistem Manajemen Terpadu Suku Dinas Tata Kelola Air Wilayah Kota Administrasi Jakarta Utara.
+                        Sistem Informasi Digital Sumber Daya Air Jakarta Utara (SIDAJU) Suku Dinas Tata Kelola Air Wilayah Kota Administrasi Jakarta Utara.
                     </p>
                 </div>
 
@@ -617,8 +762,9 @@
                 <div>
                     <h3 class="text-white font-bold text-xs tracking-widest uppercase mb-5">Navigasi Cepat</h3>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#tentang" class="text-slate-500 hover:text-white transition-colors font-light">Tentang SIMSUDIN</a></li>
+                        <li><a href="#tentang" class="text-slate-500 hover:text-white transition-colors font-light">Tentang SIDAJU</a></li>
                         <li><a href="#layanan" class="text-slate-500 hover:text-white transition-colors font-light">Fokus Layanan</a></li>
+                        <li><a href="{{ route('public.map') }}" class="text-slate-500 hover:text-white transition-colors font-light">Peta Pemantauan</a></li>
                         <li><a href="{{ route('kaleidoskop') }}" class="text-slate-500 hover:text-white transition-colors font-light">Kaleidoskop Tahunan</a></li>
                         <li><a href="{{ route('portal') }}" class="text-slate-500 hover:text-white transition-colors font-light">Portal Aplikasi</a></li>
                         <li><a href="#kontak" class="text-slate-500 hover:text-white transition-colors font-light">Hubungi Kami</a></li>

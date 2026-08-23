@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - SDA Jakarta Utara</title>
+    <title>Login - SIDAJU Jakarta Utara</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <div>
-                        <h1 class="font-display font-bold text-xl leading-none text-slate-800 tracking-wide">SDA JAKUT</h1>
+                        <h1 class="font-display font-bold text-xl leading-none text-slate-800 tracking-wide">SIDAJU JAKUT</h1>
                     </div>
                 </a>
                 
@@ -133,7 +133,7 @@
     <!-- Right Panel: Image / Showcase -->
     <div class="hidden lg:block lg:w-1/2 relative bg-dark">
         <!-- Background Image -->
-        <img src="{{ asset('images/water_control_room_1787210185537.jpg') }}" alt="Command Center SDA" class="absolute inset-0 w-full h-full object-cover">
+        <img src="{{ asset('img/slide1.jpg') }}" alt="Command Center SIDAJU" class="absolute inset-0 w-full h-full object-cover">
         
         <!-- Gradient Overlays -->
         <div class="absolute inset-0 bg-gradient-to-r from-dark/90 to-primary-900/40 mix-blend-multiply"></div>
@@ -143,7 +143,7 @@
         <div class="absolute bottom-16 left-16 right-16">
             <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl">
                 <span class="inline-block py-1 px-3 rounded-full bg-primary-500/30 border border-primary-400/30 text-primary-200 text-xs font-bold tracking-wider uppercase mb-4">Command Center Cerdas</span>
-                <h3 class="text-3xl font-display font-bold text-white mb-3">Monitoring Terintegrasi SDA</h3>
+                <h3 class="text-3xl font-display font-bold text-white mb-3">Monitoring Terintegrasi SIDAJU</h3>
                 <p class="text-primary-100 text-sm leading-relaxed max-w-lg">Sistem pelayanan satu pintu (SSO) untuk seluruh aplikasi pendukung operasional tata kelola sumber daya air di wilayah kota administrasi Jakarta Utara.</p>
                 
                 <div class="mt-6 flex items-center space-x-6 text-sm text-white/80 font-medium">

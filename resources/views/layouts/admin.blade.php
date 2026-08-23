@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Admin Dashboard') - SDA Jakarta Utara</title>
+    <title>@yield('title', 'Admin Dashboard') - SIDAJU Jakarta Utara</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +39,10 @@
             }
         }
     </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     @stack('styles')
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary-500 selection:text-white flex overflow-hidden h-screen">
@@ -52,30 +56,86 @@
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <div>
-                    <h1 class="font-display font-bold text-lg leading-none text-slate-800 tracking-wide">SDA JAKUT</h1>
+                    <h1 class="font-display font-bold text-lg leading-none text-slate-800 tracking-wide">SIDAJU JAKUT</h1>
                     <p class="text-xs font-medium text-slate-500">Admin Panel</p>
                 </div>
             </a>
         </div>
 
         <!-- Sidebar Navigation -->
-        <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+        <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-2">
             <p class="px-4 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Utama</p>
             
             <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-primary-50 text-primary-600' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} rounded-xl font-medium transition-colors">
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
                 Dashboard
             </a>
-            
-            <a href="{{ route('admin.articles.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.articles.*') ? 'bg-primary-50 text-primary-600' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} rounded-xl font-medium transition-colors">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8"></path></svg>
-                Kegiatan & Galeri
-            </a>
 
-            <a href="{{ route('admin.portals.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.portals.*') ? 'bg-primary-50 text-primary-600' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' }} rounded-xl font-medium transition-colors">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                Portal Aplikasi
-            </a>
+            <!-- Group 1: Monitoring -->
+            <div x-data="{ open: {{ request()->routeIs(['admin.monitoring.*', 'admin.monitoring-reses.*', 'admin.payments.*']) ? 'true' : 'false' }} }">
+                <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl font-medium transition-colors">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        Monitoring
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="open" x-collapse class="pl-11 pr-2 space-y-1 mt-1">
+                    <a href="{{ route('admin.monitoring.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.monitoring.index') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Monitoring Map
+                    </a>
+                    <a href="{{ route('admin.monitoring-reses.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.monitoring-reses.index') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Monitoring RESES
+                    </a>
+                    <a href="{{ route('admin.payments.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.payments.index') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Monitoring SPP / SPM
+                    </a>
+                </div>
+            </div>
+
+            <!-- Group 2: Publikasi & Aplikasi -->
+            <div x-data="{ open: {{ request()->routeIs(['admin.articles.*', 'admin.portals.*']) ? 'true' : 'false' }} }">
+                <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl font-medium transition-colors">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8"></path></svg>
+                        Data Aplikasi
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="open" x-collapse class="pl-11 pr-2 space-y-1 mt-1">
+                    <a href="{{ route('admin.articles.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.articles.*') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Kegiatan & Galeri
+                    </a>
+                    <a href="{{ route('admin.portals.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.portals.*') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Portal Aplikasi
+                    </a>
+                </div>
+            </div>
+
+            <!-- Group 3: Data Master Aset -->
+            <div x-data="{ open: {{ request()->routeIs(['admin.pompas.*', 'admin.sub-polders.*', 'admin.pompa-mobiles.*', 'admin.pintu-airs.*']) ? 'true' : 'false' }} }">
+                <button @click="open = !open" class="w-full flex items-center justify-between px-4 py-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl font-medium transition-colors">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                        Data Master Aset
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="open" x-collapse class="pl-11 pr-2 space-y-1 mt-1">
+                    <a href="{{ route('admin.pompas.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.pompas.*') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Data Pompa
+                    </a>
+                    <a href="{{ route('admin.sub-polders.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.sub-polders.*') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Data Sub Polder
+                    </a>
+                    <a href="{{ route('admin.pompa-mobiles.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.pompa-mobiles.*') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Data Pompa Mobile
+                    </a>
+                    <a href="{{ route('admin.pintu-airs.index') }}" class="block px-3 py-2 text-sm {{ request()->routeIs('admin.pintu-airs.*') ? 'text-primary-600 font-bold' : 'text-slate-500 hover:text-slate-900' }} rounded-lg transition-colors">
+                        Data Pintu Air
+                    </a>
+                </div>
+            </div>
 
         </nav>
         
@@ -102,7 +162,7 @@
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <svg class="w-5 h-5 text-slate-400 group-focus-within:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     </div>
-                    <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-full pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all font-medium text-slate-800 placeholder:text-slate-400" placeholder="Cari data pompa, aduan, atau kegiatan...">
+                    <input type="text" id="globalSearchInput" class="w-full bg-slate-50 border border-slate-200 rounded-full pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all font-medium text-slate-800 placeholder:text-slate-400" placeholder="Cari data pompa, aduan, atau kegiatan...">
                 </div>
             </div>
 
@@ -153,7 +213,7 @@
 
             <!-- Footer within main content -->
             <div class="mt-8 pt-4 border-t border-slate-200 text-center md:text-left text-sm text-slate-500 font-medium pb-8">
-                &copy; {{ date('Y') }} Suku Dinas SDA Jakarta Utara. 
+                &copy; {{ date('Y') }} Suku Dinas SIDAJU Jakarta Utara. 
             </div>
         </div>
     </main>

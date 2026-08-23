@@ -83,7 +83,7 @@
                     <p class="text-slate-500 text-xs font-semibold tracking-widest uppercase mt-1">Total Laporan</p>
                 </div>
                 <div>
-                    <p class="text-3xl font-extrabold font-serif text-white">2025</p>
+                    <p class="text-3xl font-extrabold font-serif text-white">2026</p>
                     <p class="text-slate-500 text-xs font-semibold tracking-widest uppercase mt-1">Tahun Anggaran</p>
                 </div>
                 <div>
