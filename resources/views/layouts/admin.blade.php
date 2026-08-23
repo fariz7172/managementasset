@@ -53,8 +53,8 @@
         <!-- Sidebar Header -->
         <div class="h-20 flex items-center px-8 border-b border-slate-100">
             <a href="{{ url('/') }}" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 to-primary-400 flex items-center justify-center shadow-lg shadow-primary-500/30">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 to-primary-400 shadow-lg shadow-primary-500/30 overflow-hidden border border-primary-200">
+                    <img src="{{ asset('assets/logo.jpeg') }}" alt="Logo SIDAJU" class="w-full h-full object-cover">
                 </div>
                 <div>
                     <h1 class="font-display font-bold text-lg leading-none text-slate-800 tracking-wide">SIDAJU JAKUT</h1>
