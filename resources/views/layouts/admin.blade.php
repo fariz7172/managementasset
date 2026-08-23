@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Admin Dashboard') - SIDAJU Jakarta Utara</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}?v=2">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

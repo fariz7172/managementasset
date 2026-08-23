@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Kaleidoskop dan Portal Aplikasi Terintegrasi Suku Dinas Tata Kelola Air Wilayah Jakarta Utara.">
     <title>Sistem Informasi Digital Sumber Daya Air Jakarta Utara (SIDAJU)</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}?v=2">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
