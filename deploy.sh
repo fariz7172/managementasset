@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Target directory
-TARGET_DIR="/home/u674511048/domains/farizahmad.com/public_html/sidaju"
+TARGET_DIR="/home/u674511048/domains/sidaju.com/public_html"
 
 echo "Memulai proses deployment SIDAJU..."
 
@@ -28,7 +28,7 @@ sed -i 's/DB_USERNAME=root/DB_USERNAME=u674511048_simsudin/g' .env
 sed -i 's/DB_PASSWORD=/DB_PASSWORD=!FarizAhmad123456/g' .env
 sed -i 's/APP_ENV=local/APP_ENV=production/g' .env
 sed -i 's/APP_DEBUG=true/APP_DEBUG=false/g' .env
-sed -i 's/APP_URL=http:\/\/localhost/APP_URL=https:\/\/simsudin.farizahmad.com/g' .env
+sed -i 's/APP_URL=http:\/\/localhost/APP_URL=https:\/\/sidaju.com/g' .env
 
 # 3. Install Dependencies
 echo "Menginstal dependensi Composer..."
