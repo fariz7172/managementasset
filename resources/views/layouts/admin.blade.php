@@ -213,7 +213,7 @@
 
             <!-- Footer within main content -->
             <div class="mt-8 pt-4 border-t border-slate-200 text-center md:text-left text-sm text-slate-500 font-medium pb-8">
-                &copy; {{ date('Y') }} Suku Dinas SIDAJU Jakarta Utara. 
+                &copy; {{ date('Y') }} Power By Tata Usaha Suku Dinas SIDAJU Jakarta Utara. 
             </div>
         </div>
     </main>
