@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Target directory
-TARGET_DIR="/home/u674511048/domains/farizahmad.com/public_html/simsudin"
+TARGET_DIR="/home/u674511048/domains/farizahmad.com/public_html/sidaju"
 
-echo "Memulai proses deployment SIMSUDIN..."
+echo "Memulai proses deployment SIDAJU..."
 
 # 1. Bersihkan & Clone Repository
 mkdir -p "$TARGET_DIR"
