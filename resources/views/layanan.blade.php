@@ -262,7 +262,7 @@
             </div>
             
             <div class="text-sm font-medium">
-                &copy; {{ date('Y') }} Suku Dinas SDA Kota Administrasi Jakarta Utara. <br class="md:hidden"> Hak Cipta Dilindungi.
+                &copy; {{ date('Y') }} SIDAJU × TATA USAHA Suku Dinas SDA Kota Administrasi Jakarta Utara. <br class="md:hidden"> Hak Cipta Dilindungi.
             </div>
         </div>
     </footer>

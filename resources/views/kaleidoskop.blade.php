@@ -176,7 +176,7 @@
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800 py-10 text-center">
         <p class="text-slate-500 text-sm font-light">
-            &copy; {{ date('Y') }} Suku Dinas Tata Kelola Air — Kota Administrasi Jakarta Utara
+            &copy; {{ date('Y') }} Power By SIDAJU × TATA USAHA Suku Dinas Tata Kelola Air Jakarta Utara
         </p>
     </footer>
 

@@ -783,7 +783,7 @@
             </div>
 
             <p class="text-center text-slate-700 text-xs tracking-widest uppercase font-medium">
-                &copy; {{ date('Y') }} Power By Tata Usaha Suku Dinas Tata Kelola Air Jakarta Utara — Hak Cipta Dilindungi
+                &copy; {{ date('Y') }} Power By SIDAJU × TATA USAHA Suku Dinas Tata Kelola Air Jakarta Utara
             </p>
         </div>
     </footer>

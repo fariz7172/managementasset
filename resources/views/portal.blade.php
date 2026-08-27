@@ -169,7 +169,7 @@
     <!-- Footer -->
     <footer class="bg-black border-t border-slate-900 py-10 text-center">
         <p class="text-slate-600 text-sm font-light">
-            &copy; {{ date('Y') }} Suku Dinas Tata Kelola Air — Kota Administrasi Jakarta Utara
+            &copy; {{ date('Y') }} SIDAJU × TATA USAHA Suku Dinas Tata Kelola Air — Kota Administrasi Jakarta Utara
         </p>
     </footer>
 
