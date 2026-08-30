@@ -222,7 +222,7 @@
             <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--color-teal), var(--color-orange)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; margin: 0 auto 16px; box-shadow: 0 10px 25px rgba(36, 177, 177, 0.4);">
                 <i class="fa-solid fa-layer-group"></i>
             </div>
-            <h1>SPP/SPM <span>Assets</span></h1>
+            <h1>Management <span>Assets</span> SDAJU</h1>
             <p>Silakan masuk ke akun administrator Anda</p>
         </div>
 
